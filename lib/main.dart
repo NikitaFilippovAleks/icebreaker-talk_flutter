@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app/theme/theme.dart';
 
@@ -10,17 +11,17 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final lightThemeData = ThemeData(brightness: Brightness.light, extensions: [lightSimpleTheme]);
-    final darkThemeData = ThemeData(brightness: Brightness.dark, extensions: [darkSimpleTheme]);
-
-    return MaterialApp(
-      theme: lightThemeData,
-      darkTheme: darkThemeData,
+  Widget build(BuildContext context) => ScreenUtilInit(
+    designSize: const Size(375, 812),
+    minTextAdapt: true,
+    splitScreenMode: true,
+    builder: (context, child) => MaterialApp(
+      theme: ThemeData(brightness: Brightness.light, extensions: [lightSimpleTheme]),
+      darkTheme: ThemeData(brightness: Brightness.dark, extensions: [darkSimpleTheme]),
       themeMode: ThemeMode.light,
       home: const HomePage(),
-    );
-  }
+    ),
+  );
 }
 
 class HomePage extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
 
 import 'colors.dart';
+import 'text.dart';
 
 part 'theme.tailor.dart';
 
@@ -14,9 +15,6 @@ class CustomTheme extends ThemeExtension<CustomTheme> with _$CustomThemeTailorMi
     required this.labelLarge,
     required this.labelMedium,
   });
-
-  static const labelLargeStyle = TextStyle(fontSize: 20, fontWeight: FontWeight.w500);
-  static const labelMediumStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w500);
 
   @override
   final Color background;
@@ -34,14 +32,14 @@ final lightSimpleTheme = CustomTheme(
   background: AppColors.background,
   text: AppColors.text,
   orangeDim: AppColors.orangeDim,
-  labelLarge: CustomTheme.labelLargeStyle.copyWith(color: const Color.fromARGB(221, 25, 25, 25)),
-  labelMedium: CustomTheme.labelMediumStyle.copyWith(color: Colors.amber.shade700),
+  labelLarge: AppTextStyles.labelLarge.copyWith(color: AppColors.text),
+  labelMedium: AppTextStyles.labelMedium.copyWith(color: AppColors.text),
 );
 
 final darkSimpleTheme = CustomTheme(
   background: Colors.black,
   text: AppColors.text,
   orangeDim: Colors.pink[100]!,
-  labelLarge: CustomTheme.labelLargeStyle.copyWith(color: Colors.grey.shade200),
-  labelMedium: CustomTheme.labelMediumStyle.copyWith(color: Colors.blueGrey.shade300),
+  labelLarge: AppTextStyles.labelLarge.copyWith(color: AppColors.text),
+  labelMedium: AppTextStyles.labelMedium.copyWith(color: AppColors.text),
 );
