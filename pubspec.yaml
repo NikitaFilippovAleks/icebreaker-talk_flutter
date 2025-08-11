@@ -10,13 +10,16 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
+  cupertino_icons: 1.0.8
+  theme_tailor_annotation: 3.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^5.0.0
+  flutter_lints: 5.0.0
+  build_runner: 2.6.0
+  theme_tailor: 3.1.0
 
 flutter:
   uses-material-design: true
