@@ -1,8 +1,9 @@
 part of 'index.dart';
 
 class CollectionItem extends StatelessWidget {
-  const CollectionItem({super.key, required this.collection});
+  const CollectionItem({super.key, required this.collection, required this.color});
   final Collection collection;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +37,19 @@ class CollectionItem extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                         decoration: BoxDecoration(
-                          color: theme.mint,
+                          color: color,
                           borderRadius: BorderRadius.circular(100.r),
                         ),
-                        child: Text('30 вопросов', style: theme.bodyMediumMontserrat),
+                        child: Text(
+                          '30 вопросов',
+                          style: theme.bodyMediumMontserrat.copyWith(color: theme.white),
+                        ),
                       ),
-                      const GlassButton(),
+                      GlassButton(
+                        child: Assets.icons.arrow45.svg(
+                          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                        ),
+                      ),
                     ],
                   ),
                 ],

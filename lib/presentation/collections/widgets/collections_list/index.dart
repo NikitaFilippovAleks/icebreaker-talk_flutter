@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../app/gen/assets.gen.dart';
 import '../../../../app/theme/theme.dart';
 import '../../../../data/models/collection.dart';
 import '../../../../shared/widgets/glass_button.dart';
@@ -25,14 +26,21 @@ class _CollectionsListState extends State<CollectionsList> {
   }
 
   @override
-  Widget build(BuildContext context) => BlocBuilder<CollectionsListBloc, CollectionsListState>(
-    builder: (context, state) => switch (state.fetchStatus) {
-      CollectionsFetchStatus.initial => const Text('Get Collections'),
-      CollectionsFetchStatus.success => ListView.builder(
-        itemCount: state.collections.length,
-        itemBuilder: (context, index) => CollectionItem(collection: state.collections[index]),
-      ),
-      CollectionsFetchStatus.failure => const Text('Failed to fetch collections'),
-    },
-  );
+  Widget build(BuildContext context) {
+    final theme = context.customTheme;
+
+    return BlocBuilder<CollectionsListBloc, CollectionsListState>(
+      builder: (context, state) => switch (state.fetchStatus) {
+        CollectionsFetchStatus.initial => const Text('Get Collections'),
+        CollectionsFetchStatus.success => ListView.builder(
+          itemCount: state.collections.length,
+          itemBuilder: (context, index) => CollectionItem(
+            collection: state.collections[index],
+            color: index.isEven ? theme.mint : theme.black,
+          ),
+        ),
+        CollectionsFetchStatus.failure => const Text('Failed to fetch collections'),
+      },
+    );
+  }
 }

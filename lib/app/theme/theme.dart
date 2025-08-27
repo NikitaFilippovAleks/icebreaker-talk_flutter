@@ -14,6 +14,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> with _$CustomThemeTailorMi
     required this.text,
     required this.mint,
     required this.orangeDim,
+    required this.white,
     required this.labelLargeMontserrat,
     required this.labelMediumMontserrat,
     required this.bodyMediumMontserrat,
@@ -31,6 +32,8 @@ class CustomTheme extends ThemeExtension<CustomTheme> with _$CustomThemeTailorMi
   @override
   final Color orangeDim;
   @override
+  final Color white;
+  @override
   final TextStyle labelLargeMontserrat;
   @override
   final TextStyle labelMediumMontserrat;
@@ -46,6 +49,7 @@ final lightSimpleTheme = CustomTheme(
   mint: AppColors.mint,
   text: AppColors.text,
   orangeDim: AppColors.orangeDim,
+  white: AppColors.white,
   labelLargeMontserrat: AppTextStyles.labelLargeMontserrat.copyWith(color: AppColors.text),
   labelMediumMontserrat: AppTextStyles.labelMediumMontserrat.copyWith(color: AppColors.text),
   bodyMediumMontserrat: AppTextStyles.bodyMediumMontserrat.copyWith(color: AppColors.text),
@@ -58,6 +62,7 @@ final darkSimpleTheme = CustomTheme(
   mint: AppColors.mint,
   text: AppColors.text,
   orangeDim: Colors.pink[100]!,
+  white: AppColors.white,
   labelLargeMontserrat: AppTextStyles.labelLargeMontserrat.copyWith(color: AppColors.text),
   labelMediumMontserrat: AppTextStyles.labelMediumMontserrat.copyWith(color: AppColors.text),
   bodyMediumMontserrat: AppTextStyles.bodyMediumMontserrat.copyWith(color: AppColors.text),
