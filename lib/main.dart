@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'app/di/injector_configurator.dart';
 import 'app/theme/theme.dart';
+import 'presentation/home/home_screen/index.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(brightness: Brightness.light, extensions: [lightSimpleTheme]),
       darkTheme: ThemeData(brightness: Brightness.dark, extensions: [darkSimpleTheme]),
       themeMode: ThemeMode.light,
-      home: const HomePage(),
+      home: const HomeScreen(),
     ),
   );
 }
@@ -44,7 +47,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[Text('Hello, World!', textAlign: TextAlign.center, style: customTheme.labelLarge)],
+          children: <Widget>[
+            Text('Hello, World!', textAlign: TextAlign.center, style: customTheme.labelLarge),
+          ],
         ),
       ),
     );
