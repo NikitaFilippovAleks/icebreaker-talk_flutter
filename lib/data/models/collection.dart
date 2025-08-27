@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'question.dart';
+
 part 'collection.g.dart';
 part 'collection.freezed.dart';
 
@@ -12,6 +14,7 @@ abstract class Collection with _$Collection {
     required String name,
     required String description,
     required String color,
+    required List<Question> questions,
   }) = _Collection;
 
   factory Collection.fromJson(Map<String, dynamic> json) => _$CollectionFromJson(json);

@@ -22,6 +22,8 @@ dependencies:
   json_annotation: 4.9.0
   flutter_bloc: ^9.1.1
   flutter_svg: 2.2.0
+  talker_flutter: 5.0.0
+  talker_dio_logger: 5.0.0
 
 dev_dependencies:
   flutter_test:

@@ -14,5 +14,5 @@ abstract class CollectionsApi {
   factory CollectionsApi(Dio dio) => _CollectionsApi(dio);
 
   @GET('/api/collections')
-  Future<BaseResponse<List<Collection>>> getCollections();
+  Future<BaseResponse<List<Collection>>> getCollections({@Query('populate') String populate = '*'});
 }

@@ -41,7 +41,7 @@ class CollectionItem extends StatelessWidget {
                           borderRadius: BorderRadius.circular(100.r),
                         ),
                         child: Text(
-                          '30 вопросов',
+                          '${collection.questions.length} вопросов',
                           style: theme.bodyMediumMontserrat.copyWith(color: theme.white),
                         ),
                       ),
