@@ -5,3 +5,13 @@ targets:
         options:
           explicit_to_json: true
           field_rename: snake
+      flutter_gen:
+        options:
+          output: lib/app/gen/
+          assets:
+            exclude:
+              - .env
+          integrations:
+            flutter_svg: true
+          fonts:
+            enabled: false

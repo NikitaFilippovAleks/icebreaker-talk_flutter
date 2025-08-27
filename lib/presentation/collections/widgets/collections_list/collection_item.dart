@@ -27,7 +27,13 @@ class CollectionItem extends StatelessWidget {
               children: [
                 Text(collection.name),
                 Text(collection.description),
-                Row(children: [Container(child: const Text('30 вопросов'))]),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(child: const Text('30 вопросов')),
+                    const GlassButton(),
+                  ],
+                ),
               ],
             ),
           ),
