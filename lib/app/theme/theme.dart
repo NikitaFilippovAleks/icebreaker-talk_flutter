@@ -10,36 +10,56 @@ part 'theme.tailor.dart';
 class CustomTheme extends ThemeExtension<CustomTheme> with _$CustomThemeTailorMixin {
   CustomTheme({
     required this.background,
+    required this.black,
     required this.text,
+    required this.mint,
     required this.orangeDim,
-    required this.labelLarge,
-    required this.labelMedium,
+    required this.labelLargeMontserrat,
+    required this.labelMediumMontserrat,
+    required this.bodyMediumMontserrat,
+    required this.bodyMediumManrope,
   });
 
   @override
   final Color background;
   @override
+  final Color black;
+  @override
   final Color text;
+  @override
+  final Color mint;
   @override
   final Color orangeDim;
   @override
-  final TextStyle labelLarge;
+  final TextStyle labelLargeMontserrat;
   @override
-  final TextStyle labelMedium;
+  final TextStyle labelMediumMontserrat;
+  @override
+  final TextStyle bodyMediumMontserrat;
+  @override
+  final TextStyle bodyMediumManrope;
 }
 
 final lightSimpleTheme = CustomTheme(
   background: AppColors.background,
+  black: AppColors.black,
+  mint: AppColors.mint,
   text: AppColors.text,
   orangeDim: AppColors.orangeDim,
-  labelLarge: AppTextStyles.labelLarge.copyWith(color: AppColors.text),
-  labelMedium: AppTextStyles.labelMedium.copyWith(color: AppColors.text),
+  labelLargeMontserrat: AppTextStyles.labelLargeMontserrat.copyWith(color: AppColors.text),
+  labelMediumMontserrat: AppTextStyles.labelMediumMontserrat.copyWith(color: AppColors.text),
+  bodyMediumMontserrat: AppTextStyles.bodyMediumMontserrat.copyWith(color: AppColors.text),
+  bodyMediumManrope: AppTextStyles.bodyMediumManrope.copyWith(color: AppColors.text),
 );
 
 final darkSimpleTheme = CustomTheme(
   background: Colors.black,
+  black: AppColors.black,
+  mint: AppColors.mint,
   text: AppColors.text,
   orangeDim: Colors.pink[100]!,
-  labelLarge: AppTextStyles.labelLarge.copyWith(color: AppColors.text),
-  labelMedium: AppTextStyles.labelMedium.copyWith(color: AppColors.text),
+  labelLargeMontserrat: AppTextStyles.labelLargeMontserrat.copyWith(color: AppColors.text),
+  labelMediumMontserrat: AppTextStyles.labelMediumMontserrat.copyWith(color: AppColors.text),
+  bodyMediumMontserrat: AppTextStyles.bodyMediumMontserrat.copyWith(color: AppColors.text),
+  bodyMediumManrope: AppTextStyles.bodyMediumManrope.copyWith(color: AppColors.text),
 );

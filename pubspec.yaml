@@ -42,23 +42,35 @@ flutter:
     - assets/icons/
     - .env
   fonts:
-    - family: Inter
+    - family: Manrope
       fonts:
-        - asset: assets/fonts/inter/Thin.ttf
-          weight: 100
-        - asset: assets/fonts/inter/ExtraLight.ttf
+        - asset: assets/fonts/manrope/ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/inter/Light.ttf
+        - asset: assets/fonts/manrope/Light.ttf
           weight: 300
-        - asset: assets/fonts/inter/Regular.ttf
+        - asset: assets/fonts/manrope/Regular.ttf
           weight: 400
-        - asset: assets/fonts/inter/Medium.ttf
+        - asset: assets/fonts/manrope/Medium.ttf
           weight: 500
-        - asset: assets/fonts/inter/SemiBold.ttf
+        - asset: assets/fonts/manrope/SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/inter/Bold.ttf
+        - asset: assets/fonts/manrope/Bold.ttf
           weight: 700
-        - asset: assets/fonts/inter/ExtraBold.ttf
+        - asset: assets/fonts/manrope/ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/inter/Black.ttf
-          weight: 900
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/montserrat/ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/montserrat/Light.ttf
+          weight: 300
+        - asset: assets/fonts/montserrat/Regular.ttf
+          weight: 400
+        - asset: assets/fonts/montserrat/Medium.ttf
+          weight: 500
+        - asset: assets/fonts/montserrat/SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/montserrat/Bold.ttf
+          weight: 700
+        - asset: assets/fonts/montserrat/ExtraBold.ttf
+          weight: 800

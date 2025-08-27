@@ -5,41 +5,52 @@ class CollectionItem extends StatelessWidget {
   final Collection collection;
 
   @override
-  Widget build(BuildContext context) => Container(
-    decoration: BoxDecoration(
-      color: Colors.pink[500],
-      image: const DecorationImage(
-        fit: BoxFit.cover,
-        image: NetworkImage(
-          'https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/bltb0fc8c3edd349106/6668df63a62e8d63e6e051b2/beautiful-flowers-dahlia.jpg?q=70&width=3840&auto=webp',
-        ),
-      ),
-      borderRadius: BorderRadius.circular(24.r),
-    ),
-    padding: EdgeInsets.all(4.r),
-    child: Row(
-      children: [
-        Expanded(
-          child: GlassCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 25.h,
-              children: [
-                Text(collection.name),
-                Text(collection.description),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(child: const Text('30 вопросов')),
-                    const GlassButton(),
-                  ],
-                ),
-              ],
-            ),
+  Widget build(BuildContext context) {
+    final theme = context.customTheme;
+
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.pink[500],
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(
+            'https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/bltb0fc8c3edd349106/6668df63a62e8d63e6e051b2/beautiful-flowers-dahlia.jpg?q=70&width=3840&auto=webp',
           ),
         ),
-        const Expanded(child: SizedBox()),
-      ],
-    ),
-  );
+        borderRadius: BorderRadius.circular(24.r),
+      ),
+      padding: EdgeInsets.all(4.r),
+      child: Row(
+        children: [
+          Expanded(
+            child: GlassCard(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 25.h,
+                children: [
+                  Text(collection.name, style: theme.labelLargeMontserrat),
+                  Text(collection.description, style: theme.bodyMediumManrope),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                        decoration: BoxDecoration(
+                          color: theme.mint,
+                          borderRadius: BorderRadius.circular(100.r),
+                        ),
+                        child: Text('30 вопросов', style: theme.bodyMediumMontserrat),
+                      ),
+                      const GlassButton(),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const Expanded(child: SizedBox()),
+        ],
+      ),
+    );
+  }
 }

@@ -28,30 +28,3 @@ class MyApp extends StatelessWidget {
     ),
   );
 }
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final customTheme = context.customTheme;
-
-    return Scaffold(
-      backgroundColor: customTheme.orangeDim,
-      appBar: AppBar(
-        foregroundColor: customTheme.text,
-        title: const Text('Title'),
-        backgroundColor: customTheme.background,
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Hello, World!', textAlign: TextAlign.center, style: customTheme.labelLarge),
-          ],
-        ),
-      ),
-    );
-  }
-}
