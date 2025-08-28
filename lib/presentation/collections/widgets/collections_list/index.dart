@@ -33,8 +33,9 @@ class _CollectionsListState extends State<CollectionsList> {
     return BlocBuilder<CollectionsListBloc, CollectionsListState>(
       builder: (context, state) => switch (state.fetchStatus) {
         CollectionsFetchStatus.initial => const Text('Get Collections'),
-        CollectionsFetchStatus.success => ListView.builder(
+        CollectionsFetchStatus.success => ListView.separated(
           itemCount: state.collections.length,
+          separatorBuilder: (context, index) => SizedBox(height: 4.h),
           itemBuilder: (context, index) => CollectionItem(
             collection: state.collections[index],
             color: index.isEven ? theme.mint : theme.black,
