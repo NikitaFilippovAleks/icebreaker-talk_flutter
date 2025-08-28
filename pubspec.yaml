@@ -24,6 +24,8 @@ dependencies:
   flutter_svg: 2.2.0
   talker_flutter: 5.0.0
   talker_dio_logger: 5.0.0
+  slang: 4.8.1
+  slang_flutter: 4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +39,7 @@ dev_dependencies:
   json_serializable: 6.10.0
   retrofit_generator: ^10.0.2
   flutter_gen_runner: 5.11.0
+  slang_build_runner: 4.8.0
 
 flutter:
   uses-material-design: true

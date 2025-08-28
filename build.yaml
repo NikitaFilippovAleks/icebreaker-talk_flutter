@@ -15,3 +15,6 @@ targets:
             flutter_svg: true
           fonts:
             enabled: false
+      slang_build_runner:
+        options:
+          base_locale: ru

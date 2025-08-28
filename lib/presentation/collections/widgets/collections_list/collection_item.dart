@@ -8,6 +8,7 @@ class CollectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.customTheme;
+    final t = context.t;
 
     return Container(
       decoration: BoxDecoration(
@@ -41,7 +42,7 @@ class CollectionItem extends StatelessWidget {
                           borderRadius: BorderRadius.circular(100.r),
                         ),
                         child: Text(
-                          '${collection.questions.length} вопросов',
+                          t.collections.questions_count(n: collection.questions.length),
                           style: theme.bodyMediumMontserrat.copyWith(color: theme.white),
                         ),
                       ),
