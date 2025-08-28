@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app/di/injector_configurator.dart';
 import 'app/i18n/strings.g.dart';
+import 'app/router/index.dart';
 import 'app/theme/theme.dart';
-import 'presentation/home/home_screen/index.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
@@ -21,12 +21,12 @@ class MyApp extends StatelessWidget {
     designSize: const Size(375, 812),
     minTextAdapt: true,
     splitScreenMode: true,
-    builder: (context, child) => MaterialApp(
+    builder: (context, child) => MaterialApp.router(
       theme: ThemeData(brightness: Brightness.light, extensions: [lightSimpleTheme]),
       darkTheme: ThemeData(brightness: Brightness.dark, extensions: [darkSimpleTheme]),
       themeMode: ThemeMode.light,
       locale: TranslationProvider.of(context).flutterLocale,
-      home: const HomeScreen(),
+      routerConfig: getIt<AppRouter>().router,
     ),
   );
 }

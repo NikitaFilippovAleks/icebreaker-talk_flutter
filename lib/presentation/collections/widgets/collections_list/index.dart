@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/gen/assets.gen.dart';
 import '../../../../app/i18n/strings.g.dart';
+import '../../../../app/router/routes/index.dart';
 import '../../../../app/theme/theme.dart';
 import '../../../../data/models/collection.dart';
 import '../../../../shared/widgets/glass_button.dart';

@@ -6,6 +6,7 @@ import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 import '../env/env_config.dart';
+import '../router/index.dart';
 
 @module
 abstract class InjectorModule {
@@ -15,8 +16,8 @@ abstract class InjectorModule {
   @singleton
   Talker get talker => TalkerFlutter.init();
 
-  // @singleton
-  // AppRouter get router => AppRouter();
+  @singleton
+  AppRouter get router => AppRouter();
 
   @lazySingleton
   Dio dio(EnvConfig envConfig, Talker talker) {
