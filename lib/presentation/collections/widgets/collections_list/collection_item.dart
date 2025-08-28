@@ -12,18 +12,8 @@ class CollectionItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => CollectionRoute(id: collection.id).go(context),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.pink[500],
-          image: const DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(
-              'https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/bltb0fc8c3edd349106/6668df63a62e8d63e6e051b2/beautiful-flowers-dahlia.jpg?q=70&width=3840&auto=webp',
-            ),
-          ),
-          borderRadius: BorderRadius.circular(24.r),
-        ),
-        padding: EdgeInsets.all(4.r),
+      child: CollectionHeroBackground(
+        id: collection.id,
         child: Row(
           children: [
             Expanded(
@@ -48,7 +38,7 @@ class CollectionItem extends StatelessWidget {
                             style: theme.bodyMediumMontserrat.copyWith(color: theme.white),
                           ),
                         ),
-                        GlassButton(
+                        ButtonsGlass(
                           child: Assets.icons.arrow45.svg(
                             colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                           ),

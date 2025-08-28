@@ -7,5 +7,12 @@ class CollectionRoute extends GoRouteData with _$CollectionRoute {
   const CollectionRoute({required this.id});
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => CollectionScreen(id: id);
+  Page<void> buildPage(BuildContext context, GoRouterState state) => CustomTransitionPage(
+    child: CollectionScreen(id: id),
+    transitionDuration: const Duration(milliseconds: 500),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) => SlideTransition(
+      position: Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero).animate(animation),
+      child: child,
+    ),
+  );
 }

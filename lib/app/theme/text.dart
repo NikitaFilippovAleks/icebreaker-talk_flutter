@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextStyles {
   static TextStyle get _baseStyleManrope => TextStyle(fontFamily: 'Manrope', fontSize: 14.sp);
-  static TextStyle get _baseStyleMontserrat => TextStyle(fontFamily: 'Montserrat', fontSize: 14.sp);
+  static TextStyle get _baseStyleMontserrat =>
+      TextStyle(fontFamily: 'Montserrat', fontSize: 14.sp, height: 1.2);
 
   static TextStyle get bodyMediumManrope =>
       _baseStyleManrope.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w500);

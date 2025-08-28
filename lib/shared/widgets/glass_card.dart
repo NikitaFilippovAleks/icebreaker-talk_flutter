@@ -4,14 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'glass_container.dart';
 
 class GlassCard extends StatelessWidget {
-  const GlassCard({super.key, required this.child, this.width, this.height});
+  const GlassCard({super.key, required this.child, this.width, this.height, this.alpha = 0.2});
   final double? width;
   final double? height;
   final Widget child;
+  final double alpha;
 
   @override
   Widget build(BuildContext context) => GlassContainer(
-    alpha: 0.2,
+    alpha: alpha,
     borderRadius: 21.r,
     width: width,
     height: height,
