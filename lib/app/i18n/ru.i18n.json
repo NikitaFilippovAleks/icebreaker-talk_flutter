@@ -1,0 +1,9 @@
+{
+  "collections": {
+    "questions_count": {
+      "one": "$n вопрос",
+      "few": "$n вопроса",
+      "other": "$n вопросов"
+    }
+  }
+}

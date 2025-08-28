@@ -32,6 +32,10 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+devtools_options.yaml
+
+# Codegen
+*.*.dart
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +47,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Env
+.env

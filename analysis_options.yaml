@@ -1,28 +1,354 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
-linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
-  rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+formatter:
+  page_width: 100
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    # Предпочтительно использовать одинарные кавычки для строковых литералов.
+    prefer_single_quotes: true
+
+    # Требовать запятые в конце строк там, где это применимо (в списках параметров и т. д.). 
+    require_trailing_commas: true
+
+    # Предпочтительно использовать конструкторы const, где это возможно.
+    prefer_const_constructors: true
+
+    # Предпочтительно объявлять поля как final, где это возможно.
+    prefer_final_fields: true
+
+    # Избегать использования оператора print в продакшен-коде.
+    avoid_print: true
+
+    # Не требовать вынесения тел управляющих структур на новую строку.
+    always_put_control_body_on_new_line: false
+
+    # Разрешить использование блоков catch без клаузы on, которые используются для обработки общих ошибок.
+    avoid_catches_without_on_clauses: false
+
+    # Всегда указывать типы возвращаемых значений для методов и функций.
+    always_declare_return_types: true
+
+    # Разрешить относительные импорты файлов в директории 'lib'.
+    always_use_package_imports: false
+
+    # Предпочитать относительные импорты перед абсолютными.
+    prefer_relative_imports: true
+
+    # Избегать использования типов в качестве имен параметров.
+    avoid_types_as_parameter_names: true
+
+    # Отменять подписки при выходе из виджета или страницы.
+    cancel_subscriptions: true
+
+    # Использовать BuildContext синхронно в асинхронных методах.
+    use_build_context_synchronously: true
+
+    # Предпочитать использование if в элементах коллекций вместо условных выражений.
+    prefer_if_elements_to_conditional_expressions: true
+
+    # Предпочитать использование операторов ?? и ??= вместо условных выражений с null.
+    prefer_if_null_operators: true
+
+    # Предпочитать интерполяцию строк для композиции строковых значений.
+    prefer_interpolation_to_compose_strings: true
+
+    # Предпочитать использование => вместо {return ...}, когда это возможно.
+    prefer_expression_function_bodies: true
+
+    # Избегать использования динамических вызовов
+    avoid_dynamic_calls: true
+
+    # Избегать использования пустых else блоков
+    avoid_empty_else: true
+
+    # Избегать использования долгих асинхронных вызовов при наличии синхронных аналогов
+    avoid_slow_async_io: true
+
+    # Избегать вызова .tiString() в продакшн коде, тк результат может быть минимизирован
+    avoid_type_to_string: true
+
+    # Избегать использования web-библиотек в Flutter проектах, не помеченных как web
+    avoid_web_libraries_in_flutter: true
+
+    # Обязательно закрывать dart:core -> Sink
+    close_sinks: true
+
+    # Избегать вызов различных методов коллекций для несвязных типов
+    collection_methods_unrelated_type: true
+
+    # Избегать использование ссылок в комментариях, которые находятся вне области видимости
+    comment_references: true
+
+    # Избегать использование control flow в finally блоке (return/break...)
+    control_flow_in_finally: true
+
+    # Избегать некорректного оформления условий
+    empty_statements: true
+
+    # Контроль переопределения как == так и hashcode при наличии хотя бы одного из них
+    hash_and_equals: true
+
+    # Контроль наследования/реализации классов, в зависимости от их назначения (interface, final/base...)
+    implicit_reopen: true
+
+    # Контроль корректного использования case конструкции (с учетом паттерна)
+    invalid_case_patterns: true
+
+    # Избегать использование логический конструкций только из литералов
+    literal_only_boolean_expressions: true
+
+    # Контроль за использованием соседних строк в списке
+    no_adjacent_strings_in_list: true
+
+    # Избегать использование дублей в case конструкции
+    no_duplicate_case_values: true
+
+    # createState() метод НЕ должно содержать какую либо логику- только возвращать инстанс стейта
+    no_logic_in_create_state: true
+
+    # Избегать присвоение переменной самой себе
+    no_self_assignments: true
+
+    # Избегать использование wildcard переменной в коде
+    no_wildcard_variable_uses: true
+
+    # Использовать void вместо Null, когда это возможно и не меняет логику
+    prefer_void_to_null: true
+
+    # Проверка типа в == обязательна, перед прочими, чтобы не получить неожиданную ошибку сравнения в дальнейших вызовах runtimeType
+    test_types_in_equals: true
+
+    # Избегать throw в finally блоке
+    throw_in_finally: true
+
+    # Избегать необязательных выражений, которые ни на что не повлияют
+    unnecessary_statements: true
+
+    # Избегать сравнения объектов разного типа
+    unrelated_type_equality_checks: true
+
+    # Обязательно использовать key в виджет-конструкторах
+    use_key_in_widget_constructors: true
+
+    # Проверка регулярных выражений на валидность
+    valid_regexps: true
+
+    # Контроль override аннотаций
+    annotate_overrides: true
+
+    # Контроль аннотаций редеклараций (например при создании extension type)
+    annotate_redeclares: true
+
+    # Избегать вызов on Error catch, тк Error отличаются от Exception
+    avoid_catching_errors: true
+
+    # Избегать переопределение == и hashCode для мутабельных классов
+    avoid_equals_and_hash_code_on_mutable_classes: true
+
+    # Цикл for, в отличии от [].foreach позволяет заявить четко о своих намерениях, а также выполнять асинхронные операции
+    avoid_function_literals_in_foreach_calls: true
+
+    # Избегать реализации иммутабельных классов (наследование- корректный выход)
+    avoid_implementing_value_types: true
+
+    # Избегать явной инициализации nullable переменных с null
+    avoid_init_to_null: true
+
+    # Избегать сравнение с null в == методе
+    avoid_null_checks_in_equality_operators: true
+
+    # Избегать переименование парамтеров метода (например в реализованном методе относительно метода интерфейса)
+    avoid_renaming_method_parameters: true
+
+    # Избегать типа возвращаемоего значения в сеттерах
+    avoid_return_types_on_setters: true
+
+    # Избегать возвращение null в void функциях
+    avoid_returning_null_for_void: true
+
+    # Избегать возврата this из метода (а также многократных вызовов самого объекта вместо каскадной операции
+    avoid_returning_this: true
+
+    # Избегать параметров типа дублирования (для дженериков)
+    avoid_shadowing_type_parameters: true
+
+    # Избегать каскадной операции для единственного вызова
+    avoid_single_cascade_in_expression_statements: true
+
+    # Избегать лищних виджетов Container, когда они не нужны
+    avoid_unnecessary_containers: true
+
+    # Избегать неиспользуемых параметров в конструкторе
+    avoid_unused_constructor_parameters: true
+
+    # Избегать void вместо Future<void> в асинхронных функциях
+    avoid_void_async: true
+
+    # Избегать await в НЕ Future функциях
+    await_only_futures: true
+
+    # extension должны называться также в UpperCamelCase, как и классы
+    camel_case_extensions: true
+
+    # Типы также должны быть в UpperCamelCase
+    camel_case_types: true
+
+    # Использование каскадной операции там, где это возможно и нужно
+    cascade_invocations: true
+
+    # Избегать приведение nullable типа к не nullable
+    cast_nullable_to_non_nullable: true
+
+    # Проверка на существование ссылки для импорта с условием
+    conditional_uri_does_not_exist: true
+
+    # lowerCamelCase для констант
+    constant_identifier_names: true
+
+    # Контроль скобок в условиях, не умещающихся в 1 строку
+    curly_braces_in_flow_control_structures: true
+
+    # Контроль за deprecated аннотацией
+    deprecated_consistency: true
+
+    # Контроль сортировкой импортов
+    directives_ordering: true
+
+    # Избегать пустых catch блоков
+    empty_catches: true
+
+    # Избегать пустого тела конструктора
+    empty_constructor_bodies: true
+
+    # Обязательная пустая строка в конце файла (EOL)
+    eol_at_end_of_file: true
+
+    # Обязательно описывать все возможные варианты в switch...case
+    exhaustive_cases: true
+
+    # lower_snake_case для файлов- обязателен
+    file_names: true
+
+    # Контроль за стилем TODO
+    flutter_style_todos: true
+
+    # Избегать импорта для файлов реализации сторонних пакетов
+    implementation_imports: true
+
+    # Обязательный вызов .call метода при использовании объекта как функции
+    implicit_call_tearoffs: true
+
+    # Объединение с оператором возарата, когда это возможно
+    join_return_with_assignment: true
+
+    # Обязательная пустая строка перед многострочным текстом
+    leading_newlines_in_multiline_strings: true
+
+    # Контроль за вызовом super параметров
+    matching_super_parameters: true
+
+    # Избегать блока default в switch...case
+    no_default_cases: true
+
+    # Избегать префикса _ в именах локальных идентификаторов
+    no_leading_underscores_for_local_identifiers: true
+
+    # Избегать прямого сравнения с true/false, когда в этом нет необходимости
+    no_literal_bool_comparisons: true
+
+    # Вызов runtimeType.toString (и аналог) может отрицательно сказаться на производительности
+    no_runtimeType_toString: true
+
+    # Избегать вызова нескольких идемпотентных операций на примитивные типы
+    noop_primitive_operations: true
+
+    # Избегать приведение nullable к не nullable за счет приведение через as
+    null_check_on_nullable_type_parameter: true
+
+    # Избегать использования null в местах, где ожидается замыкание
+    null_closures: true
+
+    # Избегать метод исключительно с throw вызовом
+    only_throw_errors: true
+
+    # Избегать переопределение полей в наследуемых классах
+    overridden_fields: true
+
+    # Избегать assert в теле конструктора (правильно в инициализаторе SomeClass() : assert(...))
+    prefer_asserts_in_initializer_lists: true
+
+    # assert обязательно должен включать в себя сообщение
+    prefer_asserts_with_message: true
+
+    # Предпочитать вызов литерала у коллекций
+    prefer_collection_literals: true
+
+    # Предпочитать использование ??= вместо условной конструкции
+    prefer_conditional_assignment: true
+
+    # Предпочитать использование const конструктора в иммутабельных классах, когда это возможно
+    prefer_const_constructors_in_immutables: true
+
+    # Предпочитать const обозначение самого поля вместо литерала, когда это возможно
+    prefer_const_declarations: true
+
+    # Предпочитать использовать const литералы в конструкторе иммутабельного класса, когда это возможно
+    prefer_const_literals_to_create_immutables: true
+
+    # Избегать статичных методов для создания объекта, отдавая предпочтение конструктору
+    prefer_constructors_over_static_methods: true
+
+    # Избегать indexOf, когда можно заменить на contains
+    prefer_contains: true
+
+    # Предпочитать final итератор вместо var
+    prefer_final_in_for_each: true
+
+    # Предпочитат final локальные переменные вместо var
+    prefer_final_locals: true
+
+    # Избегать .fromIterable в пользу for
+    prefer_for_elements_to_map_fromIterable: true
+
+    # Контроль создания корректных typedef
+    prefer_generic_function_type_aliases: true
+
+    # Предпочитать инициализацию полей в инициализаторе конструктора, а не в теле
+    prefer_initializing_formals: true
+
+    # Предпочитать добавление в коллекцию внутри скобок вместо ..add..add
+    prefer_inlined_adds: true
+
+    # Предпочитать isEmpty, вместо length == 0, когда это возможно
+    prefer_is_empty: true
+
+    # Предпочитать isNotEmpty, вместо !isEmpty
+    prefer_is_not_empty: true
+
+    # Использование is! вместо аналога !(a is A)
+    prefer_is_not_operator: true
+
+    # Использование whereType, когда это оправдано
+    prefer_iterable_whereType: true 
+
+    # Предпочитать if(a!=null)a!.call() -> a?.call()
+    prefer_null_aware_method_calls: true
+
+    # Предпочитать a?.b чем аналогичной операции с проверкой
+    prefer_null_aware_operators: true
+
+    # Предпочитать явное указание типа переменной, если ей не сразу задается значение
+    prefer_typing_uninitialized_variables: true
+
+    # Обязательно вызывать await к Future методам, либо оборачивать в unawaited
+    unawaited_futures: true
+
+    # Избегать ненужного await в return
+    unnecessary_await_in_return: true
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+ 

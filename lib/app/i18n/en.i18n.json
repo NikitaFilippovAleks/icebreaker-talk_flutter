@@ -1,0 +1,8 @@
+{
+  "collections": {
+    "questions_count": {
+      "one": "$n question",
+      "other": "$n questions"
+    }
+  }
+}
