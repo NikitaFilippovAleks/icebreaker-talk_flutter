@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../presentation/collections/screens/collection/controller/bloc.dart';
 import '../../../presentation/collections/screens/collection/index.dart';
 import '../../../presentation/home/home_screen/index.dart';
+import '../../di/injector_configurator.dart';
 
 part 'home.dart';
 part 'collections.dart';

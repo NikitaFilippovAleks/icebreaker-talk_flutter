@@ -1,54 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../app/di/injector_configurator.dart';
 import '../../../../app/theme/theme.dart';
 import '../../../../shared/widgets/collections/collection_hero_background.dart';
 import '../../../../shared/widgets/glass_card.dart';
+import 'controller/bloc.dart';
 import 'controls/index.dart';
 import 'header.dart';
 
-class CollectionScreen extends StatelessWidget {
+part 'body.dart';
+
+class CollectionScreen extends StatefulWidget {
   const CollectionScreen({super.key, required this.id});
 
   final int id;
 
   @override
-  Widget build(BuildContext context) {
-    final theme = context.customTheme;
+  State<CollectionScreen> createState() => _CollectionScreenState();
+}
 
-    return Scaffold(
-      body: CollectionHeroBackground(
-        id: id,
-        child: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CollectionHeader(questionsCount: 10, currentQuestionNumber: 1),
-                  SizedBox(height: 50.h),
-                  Expanded(
-                    child: GlassCard(
-                      alpha: 0.3,
-                      child: Center(
-                        child: Text(
-                          'Как ты реагируешь на негативную обратную свзязь?',
-                          style: theme.labelLargeMontserrat,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 16.h),
-                  const CollectionControls(),
-                  SizedBox(height: 58.h),
-                ],
-              ),
-            ),
-          ),
-        ),
+class _CollectionScreenState extends State<CollectionScreen> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: CollectionHeroBackground(
+      id: widget.id,
+      child: BlocProvider(
+        create: (context) => getIt<CollectionBloc>(),
+        child: CollectionBody(id: widget.id),
       ),
-    );
-  }
+    ),
+  );
 }
