@@ -9,6 +9,13 @@ class ControlButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ButtonsGlass(
+    onPressed: () => context.read<CollectionBloc>().add(
+      CollectionEvent.changeQuestion(
+        variant == ControlButtonVariant.left
+            ? ChangeQuestionType.previous
+            : ChangeQuestionType.next,
+      ),
+    ),
     variant: ButtonsGlassVariant.square,
     padding: EdgeInsets.all(12.r),
     borderRadius: 16.r,

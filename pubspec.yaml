@@ -27,6 +27,7 @@ dependencies:
   slang: 4.8.1
   slang_flutter: 4.8.0
   go_router: 16.2.0
+  flutter_card_swiper: 7.0.2
 
 dev_dependencies:
   flutter_test:

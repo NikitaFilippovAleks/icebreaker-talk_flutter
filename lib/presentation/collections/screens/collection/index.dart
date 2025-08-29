@@ -1,54 +1,65 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../app/di/injector_configurator.dart';
 import '../../../../app/theme/theme.dart';
+import '../../../../shared/widgets/animated_appearance.dart';
+import '../../../../shared/widgets/buttons/back.dart';
 import '../../../../shared/widgets/collections/collection_hero_background.dart';
 import '../../../../shared/widgets/glass_card.dart';
+import 'appearance_controller.dart';
+import 'controller/bloc.dart';
 import 'controls/index.dart';
-import 'header.dart';
 
-class CollectionScreen extends StatelessWidget {
+part 'body.dart';
+part 'cards.dart';
+part 'question_card.dart';
+part 'header.dart';
+
+class CollectionScreen extends StatefulWidget {
   const CollectionScreen({super.key, required this.id});
 
   final int id;
 
   @override
-  Widget build(BuildContext context) {
-    final theme = context.customTheme;
+  State<CollectionScreen> createState() => _CollectionScreenState();
+}
 
-    return Scaffold(
-      body: CollectionHeroBackground(
-        id: id,
-        child: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CollectionHeader(questionsCount: 10, currentQuestionNumber: 1),
-                  SizedBox(height: 50.h),
-                  Expanded(
-                    child: GlassCard(
-                      alpha: 0.3,
-                      child: Center(
-                        child: Text(
-                          'Как ты реагируешь на негативную обратную свзязь?',
-                          style: theme.labelLargeMontserrat,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 16.h),
-                  const CollectionControls(),
-                  SizedBox(height: 58.h),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+class _CollectionScreenState extends State<CollectionScreen> {
+  bool isShowContent = false;
+  late StreamSubscription<bool> _subscription;
+
+  @override
+  void initState() {
+    super.initState();
+    _subscription = CollectionAppearanceController().animationStream.listen((canAnimate) {
+      if (mounted && canAnimate) {
+        setState(() => isShowContent = true);
+      }
+    });
   }
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: CollectionHeroBackground(
+      id: widget.id,
+      child: BlocProvider(
+        create: (context) => getIt<CollectionBloc>(),
+        child: isShowContent
+            ? CollectionBody(id: widget.id)
+            : const SizedBox(width: double.infinity, height: double.infinity),
+      ),
+    ),
+  );
 }
