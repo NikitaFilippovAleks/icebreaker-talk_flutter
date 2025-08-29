@@ -26,9 +26,6 @@ class _QuestionCardState extends State<QuestionCard> with SingleTickerProviderSt
       end: 1.0,
     ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutBack));
 
-    // Future.delayed(const Duration(milliseconds: 300), () {
-    //   _animationController.forward();
-    // });
     _animationController.forward();
   }
 
