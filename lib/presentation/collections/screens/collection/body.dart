@@ -17,42 +17,22 @@ class _CollectionBodyState extends State<CollectionBody> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final theme = context.customTheme;
-
-    return SafeArea(
-      child: Center(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: BlocBuilder<CollectionBloc, CollectionState>(
-            builder: (context, state) => Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CollectionHeader(
-                  questionsCount: state.collection?.questions.length ?? 0,
-                  currentQuestionNumber: state.currentQuestionIndex + 1,
-                ),
-                SizedBox(height: 50.h),
-                Expanded(
-                  child: GlassCard(
-                    alpha: 0.3,
-                    child: Center(
-                      child: Text(
-                        state.currentQuestion?.text ?? '',
-                        style: theme.labelLargeMontserrat,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                const CollectionControls(),
-                SizedBox(height: 58.h),
-              ],
-            ),
+  Widget build(BuildContext context) => SafeArea(
+    child: Center(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: BlocBuilder<CollectionBloc, CollectionState>(
+          builder: (context, state) => Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const CollectionHeader(),
+              SizedBox(height: 50.h),
+              if (state.collection != null) const Expanded(child: Cards()),
+              SizedBox(height: 58.h),
+            ],
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
 }
