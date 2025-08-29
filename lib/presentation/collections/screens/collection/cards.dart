@@ -32,7 +32,7 @@ class _CardsState extends State<Cards> {
           ),
         ),
       ),
-      SizedBox(height: 16.h),
+      SizedBox(height: 24.h),
       const CollectionControls(),
     ],
   );
