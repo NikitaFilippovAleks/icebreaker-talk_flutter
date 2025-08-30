@@ -11,6 +11,10 @@ class CustomTheme extends ThemeExtension<CustomTheme> with _$CustomThemeTailorMi
   CustomTheme({
     required this.background,
     required this.black,
+    required this.loader1Left,
+    required this.loader1Right,
+    required this.loader2Left,
+    required this.loader2Right,
     required this.text,
     required this.mint,
     required this.orangeDim,
@@ -25,6 +29,14 @@ class CustomTheme extends ThemeExtension<CustomTheme> with _$CustomThemeTailorMi
   final Color background;
   @override
   final Color black;
+  @override
+  final Color loader1Left;
+  @override
+  final Color loader1Right;
+  @override
+  final Color loader2Left;
+  @override
+  final Color loader2Right;
   @override
   final Color text;
   @override
@@ -47,6 +59,10 @@ final lightSimpleTheme = CustomTheme(
   background: AppColors.background,
   black: AppColors.black,
   mint: AppColors.mint,
+  loader1Left: AppColors.loader1Left,
+  loader1Right: AppColors.loader1Right,
+  loader2Left: AppColors.loader2Left,
+  loader2Right: AppColors.loader2Right,
   text: AppColors.text,
   orangeDim: AppColors.orangeDim,
   white: AppColors.white,
@@ -60,6 +76,10 @@ final darkSimpleTheme = CustomTheme(
   background: Colors.black,
   black: AppColors.black,
   mint: AppColors.mint,
+  loader1Left: AppColors.loader1Left,
+  loader1Right: AppColors.loader1Right,
+  loader2Left: AppColors.loader2Left,
+  loader2Right: AppColors.loader2Right,
   text: AppColors.text,
   orangeDim: Colors.pink[100]!,
   white: AppColors.white,
