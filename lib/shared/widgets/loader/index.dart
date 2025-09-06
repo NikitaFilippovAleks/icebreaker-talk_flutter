@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../app/theme/theme.dart';
 
 class Loader extends StatefulWidget {
-  const Loader({super.key, this.size});
+  const Loader({super.key, this.size, this.isAnimated = true});
   final double? size;
+  final bool isAnimated;
 
   @override
   State<Loader> createState() => _LoaderState();
@@ -43,7 +44,9 @@ class _LoaderState extends State<Loader> with TickerProviderStateMixin {
       end: theme.loader1Right,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
-    _controller.repeat(reverse: true);
+    if (widget.isAnimated) {
+      _controller.repeat(reverse: true);
+    }
   }
 
   @override

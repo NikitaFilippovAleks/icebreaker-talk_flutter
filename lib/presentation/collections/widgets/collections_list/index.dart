@@ -23,13 +23,13 @@ class CollectionsList extends StatelessWidget {
 
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) => ListView.separated(
-          itemCount: state.collections.length,
-          separatorBuilder: (context, index) => SizedBox(height: 4.h),
-          itemBuilder: (context, index) => CollectionItem(
-            collection: state.collections[index],
-            color: index.isEven ? theme.mint : theme.black,
-          ),
+        itemCount: state.collections.length,
+        separatorBuilder: (context, index) => SizedBox(height: 4.h),
+        itemBuilder: (context, index) => CollectionItem(
+          collection: state.collections[index],
+          color: index.isEven ? theme.mint : theme.black,
         ),
-      );
+      ),
+    );
   }
 }
