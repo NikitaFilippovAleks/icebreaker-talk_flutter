@@ -11,9 +11,10 @@ class CollectionItem extends StatelessWidget {
     final t = context.t;
 
     return GestureDetector(
-      onTap: () => CollectionRoute(id: collection.id).go(context),
+      onTap: () => CollectionRoute(id: collection.id, color: collection.color).go(context),
       child: CollectionHeroBackground(
         id: collection.id,
+        color: collection.color,
         child: Row(
           children: [
             Expanded(

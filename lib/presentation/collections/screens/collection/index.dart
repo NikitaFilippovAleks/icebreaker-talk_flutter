@@ -22,10 +22,10 @@ part 'header.dart';
 part 'question_card.dart';
 
 class CollectionScreen extends StatefulWidget {
-  const CollectionScreen({super.key, required this.id});
+  const CollectionScreen({super.key, required this.id, required this.color});
 
   final int id;
-
+  final String color;
   @override
   State<CollectionScreen> createState() => _CollectionScreenState();
 }
@@ -55,6 +55,7 @@ class _CollectionScreenState extends State<CollectionScreen> {
     body: CollectionHeroBackground(
       isFullScreen: true,
       id: widget.id,
+      color: widget.color,
       child: BlocProvider(
         create: (context) => getIt<CollectionBloc>(),
         child: isShowContent
