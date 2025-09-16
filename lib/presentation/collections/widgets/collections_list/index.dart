@@ -28,6 +28,7 @@ class CollectionsList extends StatelessWidget {
         itemBuilder: (context, index) => CollectionItem(
           collection: state.collections[index],
           color: index.isEven ? theme.mint : theme.black,
+          isReversed: index.isOdd ? true : false,
         ),
       ),
     );
