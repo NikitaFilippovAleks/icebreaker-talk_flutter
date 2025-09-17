@@ -40,7 +40,7 @@ class _FullLogoState extends State<FullLogo> with SingleTickerProviderStateMixin
       ),
     );
 
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 300), () {
       _controller.forward();
     });
   }
