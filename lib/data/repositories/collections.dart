@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../models/collection.dart';
+import '../models/collection/collection.dart';
 import '../services/api/collections.dart';
 import '../services/local/collections.dart';
 
@@ -12,20 +12,27 @@ class CollectionsRepo {
   CollectionsRepo(this._collectionsApi, this._collectionsLocal);
 
   Future<List<Collection>> getCollections() async {
-    if (_collectionsLocal.collections.isNotEmpty) {
-      return _collectionsLocal.collections;
+    // Сначала пытаемся загрузить из локальной базы данных
+    final localCollections = await _collectionsLocal.getCollections();
+
+    if (localCollections.isNotEmpty) {
+      return localCollections;
     }
 
+    // Если локально нет данных, загружаем с API
     final response = await _collectionsApi.getCollections();
 
-    _collectionsLocal.setCollections(response.data);
+    // Сохраняем в локальную базу данных
+    await _collectionsLocal.saveCollections(response.data);
 
-    return _collectionsLocal.collections;
+    return response.data;
   }
 
-  Future<Collection> getCollection(int id) async {
-    final collection = _collectionsLocal.collections.firstWhere((element) => element.id == id);
-
-    return collection;
+  Future<List<Collection>> refreshCollections() async {
+    final response = await _collectionsApi.getCollections();
+    await _collectionsLocal.replaceAllCollections(response.data);
+    return response.data;
   }
+
+  Future<Collection> getCollection(int id) async => _collectionsLocal.getCollection(id);
 }

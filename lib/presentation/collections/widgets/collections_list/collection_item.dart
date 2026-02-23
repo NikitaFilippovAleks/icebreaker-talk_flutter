@@ -90,7 +90,7 @@ class _CollectionItemState extends State<CollectionItem> with SingleTickerProvid
               spacing: 25.h,
               children: [
                 Text(widget.collection.name, style: theme.labelLargeMontserrat),
-                Text(widget.collection.description, style: theme.bodyMediumManrope),
+                Text(widget.collection.description ?? '', style: theme.bodyMediumManrope),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
