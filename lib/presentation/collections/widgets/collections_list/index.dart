@@ -12,6 +12,7 @@ import '../../../../data/models/collection/collection.dart';
 import '../../../../shared/widgets/buttons/glass.dart';
 import '../../../../shared/widgets/collections/collection_hero_background.dart';
 import '../../../../shared/widgets/glass_card.dart';
+import '../../../../shared/widgets/pull_refresh/index.dart';
 import '../../../app/controller/bloc.dart';
 
 part 'collection_item.dart';
@@ -43,7 +44,7 @@ class _CollectionsListState extends State<CollectionsList> {
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeIn,
       child: BlocBuilder<AppBloc, AppState>(
-        builder: (context, state) => RefreshIndicator(
+        builder: (context, state) => PullRefresh(
           onRefresh: () {
             final completer = Completer<void>();
             context.read<AppBloc>().add(AppEvent.refresh(completer));
