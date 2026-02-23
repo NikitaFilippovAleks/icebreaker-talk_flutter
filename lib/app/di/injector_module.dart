@@ -5,6 +5,7 @@ import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
+import '../db/database.dart';
 import '../env/env_config.dart';
 import '../router/index.dart';
 
@@ -18,6 +19,9 @@ abstract class InjectorModule {
 
   @singleton
   AppRouter get router => AppRouter();
+
+  @singleton
+  AppDatabase get database => AppDatabase();
 
   @lazySingleton
   Dio dio(EnvConfig envConfig, Talker talker) {

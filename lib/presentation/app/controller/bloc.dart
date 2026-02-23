@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../../data/models/collection.dart';
+import '../../../data/models/collection/collection.dart';
 import '../../../../../data/repositories/collections.dart';
 
 part 'bloc.freezed.dart';

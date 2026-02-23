@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../app/api/base_response.dart';
-import '../../models/collection.dart';
+import '../../models/collection/collection.dart';
 
 part 'collections.g.dart';
 
