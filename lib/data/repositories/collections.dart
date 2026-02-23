@@ -28,8 +28,11 @@ class CollectionsRepo {
     return response.data;
   }
 
-  Future<Collection> getCollection(int id) async {
-    // Загружаем конкретную коллекцию с вопросами из базы данных
-    return _collectionsLocal.getCollection(id);
+  Future<List<Collection>> refreshCollections() async {
+    final response = await _collectionsApi.getCollections();
+    await _collectionsLocal.replaceAllCollections(response.data);
+    return response.data;
   }
+
+  Future<Collection> getCollection(int id) async => _collectionsLocal.getCollection(id);
 }

@@ -77,4 +77,10 @@ class CollectionsLocal {
       await saveCollection(collection);
     }
   }
+
+  Future<void> replaceAllCollections(List<Collection> collections) async {
+    await _database.delete(_database.questionsTable).go();
+    await _database.delete(_database.collectionsTable).go();
+    await saveCollections(collections);
+  }
 }

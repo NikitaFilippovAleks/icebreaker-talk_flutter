@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,13 +43,20 @@ class _CollectionsListState extends State<CollectionsList> {
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeIn,
       child: BlocBuilder<AppBloc, AppState>(
-        builder: (context, state) => ListView.separated(
-          itemCount: state.collections.length,
-          separatorBuilder: (context, index) => SizedBox(height: 4.h),
-          itemBuilder: (context, index) => CollectionItem(
-            collection: state.collections[index],
-            color: index.isEven ? theme.mint : theme.black,
-            isReversed: index.isOdd ? true : false,
+        builder: (context, state) => RefreshIndicator(
+          onRefresh: () {
+            final completer = Completer<void>();
+            context.read<AppBloc>().add(AppEvent.refresh(completer));
+            return completer.future;
+          },
+          child: ListView.separated(
+            itemCount: state.collections.length,
+            separatorBuilder: (context, index) => SizedBox(height: 4.h),
+            itemBuilder: (context, index) => CollectionItem(
+              collection: state.collections[index],
+              color: index.isEven ? theme.mint : theme.black,
+              isReversed: index.isOdd ? true : false,
+            ),
           ),
         ),
       ),
