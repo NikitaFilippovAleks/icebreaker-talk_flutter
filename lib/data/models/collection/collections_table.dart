@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
 
 class CollectionsTable extends Table {
-  IntColumn get id => integer()();
+  TextColumn get id => text()();
   TextColumn get name => text()();
   TextColumn get description => text()();
   TextColumn get color => text()();

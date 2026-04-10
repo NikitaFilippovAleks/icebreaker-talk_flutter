@@ -3,7 +3,7 @@ part of 'index.dart';
 class CollectionBody extends StatefulWidget {
   const CollectionBody({super.key, required this.id});
 
-  final int id;
+  final String id;
 
   @override
   State<CollectionBody> createState() => _CollectionBodyState();

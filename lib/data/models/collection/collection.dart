@@ -12,7 +12,7 @@ abstract class Collection with _$Collection {
   const Collection._();
 
   const factory Collection({
-    required int id,
+    required String id,
     required String name,
     String? description,
     required String color,

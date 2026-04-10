@@ -3,9 +3,9 @@ import 'package:drift/drift.dart';
 import '../collection/collections_table.dart';
 
 class QuestionsTable extends Table {
-  IntColumn get id => integer()();
+  TextColumn get id => text()();
   TextColumn get questionText => text()();
-  IntColumn get collectionId => integer().references(CollectionsTable, #id)();
+  TextColumn get collectionId => text().references(CollectionsTable, #id)();
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
 
   @override

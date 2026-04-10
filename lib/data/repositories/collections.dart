@@ -34,5 +34,5 @@ class CollectionsRepo {
     return response.data;
   }
 
-  Future<Collection> getCollection(int id) async => _collectionsLocal.getCollection(id);
+  Future<Collection> getCollection(String id) async => _collectionsLocal.getCollection(id);
 }

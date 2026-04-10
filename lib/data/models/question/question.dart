@@ -10,11 +10,11 @@ part 'question.g.dart';
 abstract class Question with _$Question {
   const Question._();
 
-  const factory Question({required int id, required String text}) = _Question;
+  const factory Question({required String id, required String text}) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) => _$QuestionFromJson(json);
 
-  QuestionsTableCompanion toTableCompanion(int collectionId) => QuestionsTableCompanion(
+  QuestionsTableCompanion toTableCompanion(String collectionId) => QuestionsTableCompanion(
     id: drift.Value(id),
     questionText: drift.Value(text),
     collectionId: drift.Value(collectionId),

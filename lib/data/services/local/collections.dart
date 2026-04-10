@@ -38,7 +38,7 @@ class CollectionsLocal {
     return result;
   }
 
-  Future<Collection> getCollection(int id) async {
+  Future<Collection> getCollection(String id) async {
     final collection = await (_database.select(
       _database.collectionsTable,
     )..where((c) => c.id.equals(id))).getSingle();

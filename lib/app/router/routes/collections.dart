@@ -2,7 +2,7 @@ part of 'index.dart';
 
 @immutable
 class CollectionRoute extends GoRouteData with _$CollectionRoute {
-  final int id;
+  final String id;
   final String color;
 
   const CollectionRoute({required this.id, required this.color});

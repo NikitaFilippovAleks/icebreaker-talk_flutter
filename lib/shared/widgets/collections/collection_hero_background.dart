@@ -12,7 +12,7 @@ class CollectionHeroBackground extends StatelessWidget {
     this.isFullScreen = false,
   });
 
-  final int id;
+  final String id;
   final String color;
   final Widget child;
   final bool isFullScreen;

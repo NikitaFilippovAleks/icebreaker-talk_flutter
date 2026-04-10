@@ -24,7 +24,7 @@ part 'question_card.dart';
 class CollectionScreen extends StatefulWidget {
   const CollectionScreen({super.key, required this.id, required this.color});
 
-  final int id;
+  final String id;
   final String color;
   @override
   State<CollectionScreen> createState() => _CollectionScreenState();
