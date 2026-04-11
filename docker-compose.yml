@@ -1,0 +1,18 @@
+# Prod-конфигурация для деплоя на VPS (Dokploy)
+# Образ собирается в GitHub Actions и пушится в ghcr.io
+#
+# Перед запуском создайте .env файл (см. .env.example)
+
+services:
+  web:
+    image: ghcr.io/nikitafilippovaleks/icebreaker-talk:latest
+    pull_policy: always
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true

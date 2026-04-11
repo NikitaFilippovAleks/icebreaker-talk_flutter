@@ -18,6 +18,7 @@ class _CollectionBodyState extends State<CollectionBody> {
 
   @override
   Widget build(BuildContext context) => SafeArea(
+    minimum: EdgeInsets.only(top: 10.h),
     child: Center(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),

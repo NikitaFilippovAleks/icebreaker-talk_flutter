@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color background = Color(0xFFFEF5F1);
+  static const Color backgroundDim = Color(0xFFF0E8E3);
   static const Color black = Color.fromRGBO(34, 34, 34, 1);
   static const Color loader1Left = Color(0xFFA5DBEB);
   static const Color loader1Right = Color(0xFFF8BB9B);
