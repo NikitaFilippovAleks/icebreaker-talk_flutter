@@ -8,8 +8,6 @@ services:
     image: ghcr.io/nikitafilippovaleks/icebreaker-talk:latest
     pull_policy: always
     restart: unless-stopped
-    ports:
-      - "${WEB_PORT:-3000}:3000"
     networks:
       - dokploy-network
 
