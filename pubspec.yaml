@@ -31,6 +31,7 @@ dependencies:
   drift: 2.28.1
   drift_flutter: 0.2.6
   custom_refresh_indicator: 4.0.1
+  rename_app: 1.6.5
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +48,20 @@ dev_dependencies:
   slang_build_runner: 4.8.0
   go_router_builder: 3.3.1
   drift_dev: 2.28.2
+  flutter_launcher_icons: 0.14.4
+
+flutter_launcher_icons:
+  image_path: "assets/icons/app_icon.png"
+  android: true
+  ios: true
+  web:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
+    background_color: "#ffffff"
+    theme_color: "#ffffff"
+  macos:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
 
 flutter:
   uses-material-design: true
