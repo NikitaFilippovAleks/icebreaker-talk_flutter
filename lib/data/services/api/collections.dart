@@ -13,6 +13,6 @@ abstract class CollectionsApi {
   @factoryMethod
   factory CollectionsApi(Dio dio) => _CollectionsApi(dio);
 
-  @GET('/api/ib-collections')
+  @GET('/api/collections')
   Future<BaseResponse<List<Collection>>> getCollections();
 }
