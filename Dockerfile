@@ -12,6 +12,9 @@ COPY . .
 ARG API_URL
 RUN echo "API_URL=${API_URL}" > .env
 
+# Кодогенерация (Freezed, Injectable, Retrofit, Drift, GoRouter, ThemeTailor, Slang, flutter_gen)
+RUN dart run build_runner build --delete-conflicting-outputs
+
 RUN flutter build web --release
 
 # ===== Раздача статики через Nginx =====
