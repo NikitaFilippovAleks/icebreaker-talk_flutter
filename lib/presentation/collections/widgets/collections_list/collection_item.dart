@@ -16,9 +16,11 @@ class CollectionItem extends StatefulWidget {
 }
 
 class _CollectionItemState extends State<CollectionItem> with SingleTickerProviderStateMixin {
+  // Глобальный флаг: блокирует нажатия на остальные карточки, пока одна уже открывается.
+  static bool _isAnyNavigating = false;
+
   late AnimationController _animationController;
   late Animation<double> _opacityAnimation;
-  bool _isNavigating = false;
 
   @override
   void initState() {
@@ -34,12 +36,12 @@ class _CollectionItemState extends State<CollectionItem> with SingleTickerProvid
   }
 
   Future<void> _onTap(BuildContext context) async {
-    if (_isNavigating) return;
-    _isNavigating = true;
+    if (_isAnyNavigating) return;
+    _isAnyNavigating = true;
 
     await _animationController.forward();
     if (!mounted) {
-      _isNavigating = false;
+      _isAnyNavigating = false;
       return;
     }
 
@@ -52,7 +54,7 @@ class _CollectionItemState extends State<CollectionItem> with SingleTickerProvid
       await Future.delayed(const Duration(milliseconds: 300));
       await _animationController.reverse();
     }
-    _isNavigating = false;
+    _isAnyNavigating = false;
   }
 
   @override
