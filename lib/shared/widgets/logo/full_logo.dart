@@ -56,18 +56,18 @@ class _FullLogoState extends State<FullLogo> with SingleTickerProviderStateMixin
     child: SizedBox(
       height: 26.h,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Positioned(
-            top: 0,
             right: 38.w,
-            bottom: 0,
-            child: Center(
-              child: AnimatedBuilder(
-                animation: _opacityAnimationLogo,
-                builder: (context, child) => Opacity(
-                  opacity: _opacityAnimationLogo.value,
-                  child: const Loader(size: 38, isAnimated: false),
-                ),
+            top: (26.h - 38.w) / 2,
+            width: 38.w,
+            height: 38.w,
+            child: AnimatedBuilder(
+              animation: _opacityAnimationLogo,
+              builder: (context, child) => Opacity(
+                opacity: _opacityAnimationLogo.value,
+                child: const Loader(size: 38, isAnimated: false),
               ),
             ),
           ),

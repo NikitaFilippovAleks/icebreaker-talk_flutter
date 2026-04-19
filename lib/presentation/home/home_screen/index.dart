@@ -10,9 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: SafeArea(
+      bottom: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 16.h,
+        spacing: 10.h,
         children: [
           Padding(
             padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 10.h),

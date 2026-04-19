@@ -51,6 +51,9 @@ class _CollectionsListState extends State<CollectionsList> {
             return completer.future;
           },
           child: ListView.separated(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.paddingOf(context).bottom + 16.h,
+            ),
             itemCount: state.collections.length,
             separatorBuilder: (context, index) => SizedBox(height: 4.h),
             itemBuilder: (context, index) => CollectionItem(

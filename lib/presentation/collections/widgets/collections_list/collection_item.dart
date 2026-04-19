@@ -79,8 +79,16 @@ class _CollectionItemState extends State<CollectionItem> with SingleTickerProvid
     final theme = context.customTheme;
     final t = context.t;
 
+    // Ширина glass-карточки зависит от объёма контента: чем длиннее описание и название,
+    // тем шире карточка. Минимум 50%, максимум 80% от ширины цветного блока.
+    final contentLength =
+        widget.collection.name.length * 2 + (widget.collection.description?.length ?? 0);
+    final glassFlex = (50 + (contentLength / 4).clamp(0, 30)).round();
+    final spacerFlex = 100 - glassFlex;
+
     return [
       Expanded(
+        flex: glassFlex,
         child: AnimatedBuilder(
           animation: _animationController,
           builder: (context, child) => Opacity(opacity: _opacityAnimation.value, child: child),
@@ -117,7 +125,7 @@ class _CollectionItemState extends State<CollectionItem> with SingleTickerProvid
           ),
         ),
       ),
-      const Expanded(child: SizedBox()),
+      Expanded(flex: spacerFlex, child: const SizedBox()),
     ];
   }
 }
